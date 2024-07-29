@@ -59,7 +59,7 @@ const Hero = () => {
                                 fontWeight='900'
                                 fontStyle='style.normal'
                                 fontSize={50}
-                                lineHeight='0px'
+                                lineHeight='0'
                                 mt='18px'
                                 mb='10px'>
                                 Soy Verónica Zuliani

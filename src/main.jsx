@@ -8,7 +8,7 @@ import theme from './Components/Theme/Theme'
 
 import Header from './Components/Header/Header'
 import Hero from './Components/Hero/Hero'
-// import SobreMi from './Components/SobreMi/SobreMi'
+import SobreMi from './Components/SobreMi/SobreMi'
 // import Habilidades from './Components/Habilidades/Habilidades'
 // import Proyectos from './Components/Proyectos/Proyectos'
 // import Contacto from './Components/Contacto/Contacto'
@@ -21,10 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ChakraProvider theme={theme}>
       <Header/>
       <Hero/>
-      {/* <SobreMi/>
-      <Habilidades/>
-      <Proyectos/>
-      <Contacto/> */}
+      <SobreMi/>
+      {/* <Habilidades/> */}
+      {/* <Proyectos/> */}
+      {/* <Contacto/> */}
       <Footer/> 
     </ChakraProvider>
    
