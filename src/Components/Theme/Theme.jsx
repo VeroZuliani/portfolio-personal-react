@@ -24,6 +24,7 @@ const theme = extendTheme({
             cactus: "Cactus Classical Serif, serif",
             french: "IM Fell French Canon, serif",
             roboto: "Roboto, sans-serif",
+            playfair: "Playfair Display, serif",
         },
         weight: {
             400: '400',

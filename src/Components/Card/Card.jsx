@@ -27,8 +27,9 @@ const Card = ({img,titulo,descripcion}) => {
                 textIndent='15px'
                 >{descripcion}
             </Text>
+            
         </Box>
-
+        
     )
 }
 
