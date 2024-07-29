@@ -1,4 +1,7 @@
 import { extendTheme} from '@chakra-ui/react'
+import "@fontsource/roboto";
+import "@fontsource/cactus-classical-serif";
+import "@fontsource/im-fell-french-canon";
 
 //Personalizar estilos
 const theme = extendTheme({
@@ -26,6 +29,7 @@ const theme = extendTheme({
             400: '400',
             500: '500',
             700: '700',
+            900: '900',
         },
         style:{
             normal: 'normal',
