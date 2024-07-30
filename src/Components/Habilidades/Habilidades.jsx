@@ -1,9 +1,9 @@
-
 import Experiencia from "../Experiencia/Experiencia"
 import Skills from "../Skills/Skills"
 import { element } from 'prop-types'
 
 import { Flex, Box, Heading, Wrap} from "@chakra-ui/react"
+
 
 
 const Habilidades = () => {
