@@ -16,7 +16,7 @@ const Proyectos = () => {
             >
 
             <Heading as='h1' 
-                color='text.txt.titulo' 
+                color='text.txtTitulo' 
                 pt='40px' 
                 fontFamily='font.playfair'
                 fontSize={33}
