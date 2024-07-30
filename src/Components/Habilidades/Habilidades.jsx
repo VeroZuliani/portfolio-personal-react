@@ -3,7 +3,7 @@ import Experiencia from "../Experiencia/Experiencia"
 import Skills from "../Skills/Skills"
 import { element } from 'prop-types'
 
-import { Flex, Box, Heading, Wrap } from "@chakra-ui/react"
+import { Flex, Box, Heading, Wrap} from "@chakra-ui/react"
 
 
 const Habilidades = () => {
@@ -70,26 +70,32 @@ const Habilidades = () => {
             </Heading>
 
             <Wrap className="experiencias" 
+                justify='space-evenly' 
                 w='910px'
                 h='176px'
                 color='text.color'
-                justifyContent='space-evenly'
-                alignItems='center'
                 pt='27px'
                 pr='82px'
                 pb='80px'
                 pl='47px'
+                mt='40px'
+                ml='40px'
+                // display= 'flex'
+                // justifyContent= 'space-evenly'
+                alignItems= 'center'
+                // flexWrap= 'wrap'
                 >
                 {experiencias.map(elemento => 
                     <Experiencia img={elemento.img} titulo={elemento.titulo} experiencia={elemento.experiencia}/>)
                 }
             </Wrap>
 
-            <Box className="skills"
+            <Box className="skills" 
                 w='910px'
                 h='176px'
                 ml='40px'
                 pb='30px'
+                mt='60px'
                 >
                 <Flex className="hab-contenedor"
                     justifyContent='space-between'

@@ -30,7 +30,6 @@ const Skills = ({leng, porc}) => {
             <Slider className="progress" 
                 w='204px'
                 ml='10px'
-                h='3px'
                 pos='relative'
                 mb='48px'
                 isReadOnly='true' 
