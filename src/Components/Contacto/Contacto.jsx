@@ -1,6 +1,9 @@
-import { Flex, Box, Text, SimpleGrid, Button, FormControl, FormLabel, Input, Textarea} from "@chakra-ui/react"
+import { Flex, Box, Text, SimpleGrid, Button, FormControl, FormLabel, Input, Textarea, FormHelperText} from "@chakra-ui/react"
 import { element } from 'prop-types'
 import InfoContacto from "../InfoContacto/InfoContacto"
+import { Formik } from 'formik'
+import { motion } from "framer-motion"
+
 
 const Contacto = () => {
 
@@ -19,6 +22,7 @@ const Contacto = () => {
         },
     ]
 
+   
     return(
 
         <Flex className="contacto" id="contacto"
@@ -62,77 +66,138 @@ const Contacto = () => {
                     } 
                 </SimpleGrid>
 
+                
+                <Formik initialValues={{
+                    nom:'',
+                    correo:'',
+                    asunto:'',
+                    msj:''
+                }}
+                
+                validate={(values)=>{
+                    let errors={}
 
-                <Box className="form-contenedor" w='350px' h='390px' mr='46px'>
+                    if(!values.nom){
+                        errors.nom='Debe ingresar nombre'
+                    }
+                   
+                    if (!values.correo) {
+                        errors.email = 'Debe ingresar correo electrónico'
+                      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.correo)) {
+                        errors.email = 'Correo inválido'
+                    }
 
-                    <Flex className="form" flexDirection='column' overflow='hidden'>
+                    if(!values.asunto){
+                        errors.asunto='Debe ingresar asunto'
+                    }
+                    if(!values.msj){
+                        errors.msj='Debe ingresar un mensaje'
+                    }
+                    return errors
+                }}
+                
+
+                onSubmit={(values)=>{
+                    console.log(values)
+                }}
+                >
+
+                {({
+                    values,
+                    errors,
+                    handleChange,
+                    handleSubmit, 
+                    isSubmitting
+                }) => (
+
+                <Box className="form-contenedor" w='350px' h='390px' mr='46px' onSubmit={handleSubmit}>
+
+                    <Flex className="form" flexDirection='column' overflow='hidden' >
 
                         <FormControl className="form-grupo">
-                            <FormLabel className="label-nom" for="">Nombre</FormLabel>
-                            <Input className="input-nom" type="text" placeholder=" " required 
+                            <FormLabel className="label-nom" for=""></FormLabel>
+                            <Input className="input-nom" type="text" placeholder="Nombre " required name="nom"
+                                _placeholder={{ color: 'text.formLabel' }}
                                 variant='flushed' 
                                 color='text.color' 
                                 borderColor='text.color' 
                                 focusBorderColor='text.color'
+                                value={values.nom}
+                                onChange={handleChange}
                             />
+                            {errors.nom?<FormHelperText color='text.color'>{errors.nom}</FormHelperText>:null}
                         </FormControl>
 
                         <FormControl className="form-grupo">
-                            <FormLabel className="label-email" for="">Correo Electrónico</FormLabel>
-                            <Input className="input-email" type="email" placeholder=" " required 
+                            <FormLabel className="label-email" for=""></FormLabel>
+                            <Input className="input-email" type="email" placeholder="Correo Electrónico" name="correo"
+                                _placeholder={{ color: 'text.formLabel' }}
                                 variant='flushed' 
                                 color='text.color' 
                                 borderColor='text.color' 
                                 focusBorderColor='text.color'
+                                value={values.correo}
+                                onChange={handleChange}
                             />
+                            {errors.correo?<FormHelperText color='text.color'>{errors.correo}</FormHelperText>:null}
                         </FormControl>
 
                         <FormControl className="form-grupo" >
-                            <FormLabel className="label-asunto" for="">Asunto</FormLabel>
-                            <Input className="input-asunto"type="text" placeholder=" " required 
+                            <FormLabel className="label-asunto" for=""></FormLabel>
+                            <Input className="input-asunto"type="text" placeholder="Asunto" name="asunto"
+                                _placeholder={{ color: 'text.formLabel' }}
                                 variant='flushed' 
                                 color='text.color' 
                                 borderColor='text.color' 
                                 focusBorderColor='text.color'
-                                pos='relative'
+                                value={values.asunto}
+                                onChange={handleChange}
                             />
+                            {errors.asunto?<FormHelperText color='text.color'>{errors.asunto}</FormHelperText>:null}
                         </FormControl>
 
                         <FormControl className="form-grupo">
-                            <FormLabel className="label-msj" for="">Mensaje</FormLabel>
-                            <Textarea className="input-msj" type="text" placeholder=" " required  
+                            <FormLabel className="label-msj" for="" ></FormLabel>
+                            <Textarea className="input-msj" type="text" placeholder="Mensaje" name="msj"
+                                _placeholder={{ color: 'text.formLabel' }}
                                 variant='flushed' 
                                 color='text.color' 
                                 borderColor='text.color' 
                                 focusBorderColor='text.color'
-                                pos='relative'
+                                value={values.msj}
+                                onChange={handleChange}
                             />
+                            {errors.msj?<FormHelperText color='text.color'>{errors.msj}</FormHelperText>:null}
                         </FormControl>
 
                     </Flex>
 
-                    <Button className="enviar" type="submit" 
-                        mt='20px'
-                        pt='5px'
-                        pr='20px'
-                        pb='5px'
-                        pl='20px'
-                        border='none'
-                        borderRadius='5px'
-                        bg='text.color'
-                        fontFamily='font.roboto'
-                        fontWeight='weight.400'
-                        fontStyle='style.normal'
-                        fontSize={14}
-                        transition={{bg:'1s', color:'1s',}}
-                        _hover={{
-                            bg:'text.formLabel',
-                            color:'text.color',
-                        }}
-                        >Enviar
-                    </Button>
-
+                    <motion.div whileTap={{scale: 0.90}} transition={{ duration: 0.1 }}>
+                        <Button className="enviar" type="submit"  disabled={isSubmitting}
+                            mt='20px'
+                            pt='5px'
+                            pr='20px'
+                            pb='5px'
+                            pl='20px'
+                            border='none'
+                            borderRadius='5px'
+                            bg='text.color'
+                            fontFamily='font.roboto'
+                            fontWeight='weight.400'
+                            fontStyle='style.normal'
+                            fontSize={14}
+                            transition={{bg:'1s', color:'1s',}}
+                            _hover={{
+                                bg:'text.formLabel',
+                                color:'text.color',
+                            }}
+                            >Enviar
+                        </Button>
+                    </motion.div>
                 </Box>
+
+                )}
+                </Formik>
 
             </Flex>
         </Flex>

@@ -120,6 +120,7 @@ const Proyectos = () => {
                                 </WrapItem>
                             </motion.div>
                         </Wrap>
+
                     </TabPanel>
 
                 </TabPanels>

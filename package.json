@@ -16,6 +16,7 @@
     "@fontsource/cactus-classical-serif": "^5.0.1",
     "@fontsource/im-fell-french-canon": "^5.0.12",
     "@fontsource/roboto": "^5.0.13",
+    "formik": "^2.4.6",
     "framer-motion": "^11.3.19",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
