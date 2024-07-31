@@ -3,7 +3,7 @@ import {Box, Text, Image, Heading} from '@chakra-ui/react'
 import { motion, useAnimation, useInView } from "framer-motion"
 import { useEffect, useRef } from 'react'
 
-const Card = ({img,titulo,descripcion}) => {
+const Card =  ({img,titulo,descripcion}) => {
 
     const ref= useRef(null)
     const isInView= useInView(ref, { once:true })

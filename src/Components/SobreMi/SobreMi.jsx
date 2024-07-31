@@ -62,7 +62,7 @@ const SobreMi = () => {
                 mb='100px'
                 >
                 {sobreMI.map(elemento => 
-                    <Card img={elemento.img} titulo={elemento.titulo} descripcion={elemento.descripcion} />)
+                    <Card key={element.img} img={elemento.img} titulo={elemento.titulo} descripcion={elemento.descripcion} />)
                 }
             </Flex>
 

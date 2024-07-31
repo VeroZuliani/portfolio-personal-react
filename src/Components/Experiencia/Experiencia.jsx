@@ -1,4 +1,4 @@
-import {Box, Text, Image, Heading, WrapItem, Center, Flex} from '@chakra-ui/react'
+import {Box, Text, Image, Heading, WrapItem, Center} from '@chakra-ui/react'
 
 const Experiencia = ({img,titulo,experiencia}) => {
 

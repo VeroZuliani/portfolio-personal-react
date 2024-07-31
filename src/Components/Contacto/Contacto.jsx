@@ -3,10 +3,12 @@ import { element } from 'prop-types'
 import InfoContacto from "../InfoContacto/InfoContacto"
 import { Formik } from 'formik'
 import { motion } from "framer-motion"
+import { useState, useRef } from "react"
+import emailjs from '@emailjs/browser'
 
 
 const Contacto = () => {
-
+    
     let infoContacto = [
         {
             "img":"/correo.svg",
@@ -21,6 +23,32 @@ const Contacto = () => {
             "info":"Córdoba Capital, ARG",
         },
     ]
+
+    const [formularioEnviado, estado] = useState(false)
+
+
+    //EmailJS
+    const form = useRef();
+
+    const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_chtdh48', 'template_qtik8yh', form.current, {
+        publicKey: '8wl46bsC2tUkKvHbO',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+
+
 
    
     return(
@@ -62,7 +90,7 @@ const Contacto = () => {
                 >
                 <SimpleGrid className="info" columns={1} >
                     {infoContacto.map(elemento =>
-                        <InfoContacto img={elemento.img} info={elemento.info}/>)
+                        <InfoContacto key={element.img} img={elemento.img} info={elemento.info}/>)
                     } 
                 </SimpleGrid>
 
@@ -79,14 +107,14 @@ const Contacto = () => {
 
                     if(!values.nom){
                         errors.nom='Debe ingresar nombre'
+                    } else if (!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(values.nom)) {
+                        errors.nom= 'Debe ingresar letras y espacios'
                     }
-                   
                     if (!values.correo) {
-                        errors.email = 'Debe ingresar correo electrónico'
+                        errors.correo = 'Debe ingresar correo electrónico'
                       } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.correo)) {
-                        errors.email = 'Correo inválido'
+                        errors.correo = 'Correo inválido'
                     }
-
                     if(!values.asunto){
                         errors.asunto='Debe ingresar asunto'
                     }
@@ -97,8 +125,10 @@ const Contacto = () => {
                 }}
                 
 
-                onSubmit={(values)=>{
-                    console.log(values)
+                onSubmit={(values, {resetForm})=>{
+                    resetForm();
+                    console.log(values);
+                    estado(true);
                 }}
                 >
 
@@ -107,10 +137,9 @@ const Contacto = () => {
                     errors,
                     handleChange,
                     handleSubmit, 
-                    isSubmitting
                 }) => (
 
-                <Box className="form-contenedor" w='350px' h='390px' mr='46px' onSubmit={handleSubmit}>
+                <Box className="form-contenedor" w='350px' h='390px' mr='46px' onSubmit={handleSubmit} ref={form}>
 
                     <Flex className="form" flexDirection='column' overflow='hidden' >
 
@@ -173,7 +202,7 @@ const Contacto = () => {
                     </Flex>
 
                     <motion.div whileTap={{scale: 0.90}} transition={{ duration: 0.1 }}>
-                        <Button className="enviar" type="submit"  disabled={isSubmitting}
+                        <Button className="enviar" type="submit" value="Send"
                             mt='20px'
                             pt='5px'
                             pr='20px'
@@ -193,7 +222,11 @@ const Contacto = () => {
                             }}
                             >Enviar
                         </Button>
+                        
                     </motion.div>
+
+                    {/* Si se envio el formulario, que muestre el mensaje */}
+                    {formularioEnviado && <Text className='enviado' color='text.color'>Mensaje enviado con éxito!</Text>}
                 </Box>
 
                 )}

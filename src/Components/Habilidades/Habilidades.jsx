@@ -84,7 +84,7 @@ const Habilidades = () => {
                 alignItems= 'center'
                 >
                 {experiencias.map(elemento => 
-                    <Experiencia img={elemento.img} titulo={elemento.titulo} experiencia={elemento.experiencia}/>)
+                    <Experiencia key={element.img} img={elemento.img} titulo={elemento.titulo} experiencia={elemento.experiencia}/>)
                 }
             </Wrap>
 
@@ -101,7 +101,7 @@ const Habilidades = () => {
                     pr='82px'
                     pl='47px'>
                     {lenguaje.map(elemento => 
-                        <Skills leng={elemento.leng} porc={elemento.porc}/>)
+                        <Skills key={element.leng} leng={elemento.leng} porc={elemento.porc}/>)
                     } 
                 </Flex>
             </Box>
