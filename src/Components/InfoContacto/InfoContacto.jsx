@@ -10,7 +10,7 @@ const InfoContacto = ({img,info}) => {
             justifyContent='flex-start' 
             alignItems='center'
             mt='36px'
-            mb='28px'
+            mb='50px'
             >
             <Image mr='3px' w='54px' h='54px' src={img} alt=""/>
             <Text 
