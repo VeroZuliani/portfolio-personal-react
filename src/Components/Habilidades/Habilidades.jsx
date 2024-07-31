@@ -69,6 +69,7 @@ const Habilidades = () => {
                 >Experiencias y Habilidades
             </Heading>
 
+
             <Wrap className="experiencias" 
                 justify='space-evenly' 
                 w='910px'
@@ -80,10 +81,7 @@ const Habilidades = () => {
                 pl='47px'
                 mt='40px'
                 ml='40px'
-                // display= 'flex'
-                // justifyContent= 'space-evenly'
                 alignItems= 'center'
-                // flexWrap= 'wrap'
                 >
                 {experiencias.map(elemento => 
                     <Experiencia img={elemento.img} titulo={elemento.titulo} experiencia={elemento.experiencia}/>)

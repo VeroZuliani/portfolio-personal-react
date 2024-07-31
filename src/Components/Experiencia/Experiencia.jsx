@@ -1,12 +1,12 @@
-import {Box, Text, Image, Heading, WrapItem, Center} from '@chakra-ui/react'
+import {Box, Text, Image, Heading, WrapItem, Center, Flex} from '@chakra-ui/react'
 
 const Experiencia = ({img,titulo,experiencia}) => {
 
     return(
-
+     
         <WrapItem className="expe-contenedor"  ml='45px' mb='10px'>  
             <Center>
-                <Image pl='80px' w='60px' h='60px' src={img} alt=""/>
+                <Image w='60px' h='60px' src={img} alt=""/>
                 <Box className="exp" display='inline-block' >
                     <Heading as='h3'
                         fontSize={16}
@@ -29,6 +29,7 @@ const Experiencia = ({img,titulo,experiencia}) => {
                 </Box> 
             </Center>
         </WrapItem> 
+
     )
 }
 
