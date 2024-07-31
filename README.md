@@ -5,9 +5,10 @@
 ## Descripción
 Este es un portfolio personal donde encontrarán información sobre mí, de mis habilidades y proyectos; como así también una sección para que me contacten.
 
-## Inspración
+## Inspiración
 Me basé en el siguiente diseño de Dribbble
-https://dribbble.com/shots/14849459-Designer-Portfolio/attachments/6559033?mode=media
+
+- https://dribbble.com/shots/14849459-Designer-Portfolio/attachments/6559033?mode=media
 
 
 ## Recursos
