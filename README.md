@@ -19,9 +19,8 @@ Me basé en el siguiente diseño de Dribbble
 
 
 ## Aqui podras visualizar la página
-```sh
-https://portfolio-personal-react-two.vercel.app/
-```
+- https://portfolio-personal-react-two.vercel.app/
+
 
 
 
