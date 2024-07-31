@@ -1,8 +1,20 @@
-# React + Vite
+<div align="center">
+  <h1>Portfolio Personal</h1>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Este es un portfolio personal donde encontrarán información sobre mí, de mis habilidades y proyectos; como así también una sección para que me contacten.
 
-Currently, two official plugins are available:
+## Inspración
+Me basé en el siguiente diseño de Dribbble
+https://dribbble.com/shots/14849459-Designer-Portfolio/attachments/6559033?mode=media
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Recursos
+- **Docs de React**: [React](https://reactjs.org/docs/getting-started.html)
+- **Frameworks**: [Chakra UI](https://chakra-ui.com/)
+- **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
+- **Deploy**: [Vercel](https://vercel.com)
+
+
+
